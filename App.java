@@ -123,47 +123,87 @@ public class App {
 
     // Encontrar el máximo en un array
     public static int maxArray(int[] array) {
-      
-        return 3;
+        int max = array[0];
+        for (int num : array) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max;
     }
 
     // Encontrar el mínimo en un array
     public static int minArray(int[] array) {
-
-        return 3;
+        int min = array[0];
+        for (int num : array) {
+            if (num < min) {
+                min = num;
+            }
+        }
+        return min;
     }
 
     // Ordenar un array
     public static void ordenarArray(int[] array) {
+        Arrays.sort(array);
     }
 
     // Buscar un elemento en un array
     public static boolean buscarElemento(int[] array, int elemento) {
-    
+        for (int num : array) {
+            if (num == elemento) {
+                return true;
+            }
+        }
         return false;
     }
 
     // Invertir un array
     public static void invertirArray(int[] array) {
-      
+        int i = 0, j = array.length - 1;
+        while (i < j) {
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+            i++;
+            j--;
+        }
     }
 
     // Calcular la media de un array
     public static double mediaArray(int[] array) {
         int suma = sumarArray(array);
-        return (double) 3 /5;
+        return (double) suma / array.length;
     }
 
     // Encontrar la mediana de un array
     public static double medianaArray(int[] array) {
         ordenarArray(array);
+        int medio = array.length / 2;
+        if (array.length % 2 == 0) {
+            return (array[medio - 1] + array[medio]) / 2.0;
+        } else {
+            return array[medio];
+        }
     }
 
     // Calcular la desviación estándar de un array
     public static double desviacionEstandarArray(int[] array) {
+        double media = mediaArray(array);
+        double suma = 0;
+        for (int num : array) {
+            suma += Math.pow(num - media, 2);
+        }
+        return Math.sqrt(suma / array.length);
     }
 
     // Generar un array de números aleatorios
     public static int[] generarArrayAleatorio(int tamaño, int limite) {
+        int[] array = new int[tamaño];
+        Random random = new Random();
+        for (int i = 0; i < tamaño; i++) {
+            array[i] = random.nextInt(limite);
+        }
+        return array;
     }
 }
