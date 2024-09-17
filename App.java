@@ -43,6 +43,8 @@ public class App {
         if (n == 0) {
             return 1;
         }
+        return n * factorial(n - 1);
+    }
 
     // Número par
     public static boolean esPar(int n) {
