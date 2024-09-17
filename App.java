@@ -53,8 +53,9 @@ public class App {
 
     // Número impar
     public static boolean esImpar(int n) {
-        return false;
+        return n % 2 != 0;
     }
+
 
     // Potencia de un número
     public static double potencia(double base, int exponente) {
